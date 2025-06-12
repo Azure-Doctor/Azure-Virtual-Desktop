@@ -47,7 +47,7 @@ graph TD;
 
 Déploie l’infrastructure socle :
 
-1. **Resource Group** & **VNet/Subnet**
+1. Resource Group & VNet/Subnet
 2. **Workspace**, **Host Pool**, **App Group** (Desktop)
 3. Génère un **token d’enregistrement** (validité 24 h)
 4. Laisse un *placeholder* pour les Session Hosts, à remplacer par des VM **Entra ID join**
