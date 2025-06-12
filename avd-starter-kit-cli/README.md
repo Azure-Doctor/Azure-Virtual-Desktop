@@ -19,7 +19,7 @@ Ce dépôt renferme un script PowerShell qui déploie en une seule passe un envi
 | `avd-deploy-starterkit.ps1` | Script de déploiement complet |
 | `README.md`                 | Ce guide                      |
 
----
+
 
 ##  Variables principales
 
@@ -108,16 +108,30 @@ Vérifier que le service RDAgentBootLoader est en cours d’exécution
 
 Remove-AzResourceGroup -Name "azdoc-avd-demo-rg" -Force
 ```
-## Ressources utiles
-Documentation AVD
+## 📚 Ressources utiles
 
-Microsoft Entra ID Join
+Tu veux aller plus loin dans la maîtrise d’Azure ? Voici deux guides conçus pour t'accompagner concrètement :
 
-Rôles RBAC Azure
+👉 **Masterclass Azure RBAC – Guide ultime du consultant**  
+Comprends (enfin) les rôles, scopes et permissions dans Azure. Tu découvriras comment sécuriser ton environnement cloud sans te perdre dans la matrice RBAC.  
+📘 Format pratique, cas réels, astuces de terrain.
 
-Agent AVD (MSI)
+👉 **Masterclass Azure Cloud Shell – Guide ultime du consultant**  
+Apprends à piloter ton infra 100 % en ligne, depuis n’importe quel navigateur. Commandes essentielles, scripts utiles, automatisation... tout ce qu’il faut pour ne plus dépendre de ton poste local.  
+☁️ Optimisé pour les consultants pressés.
 
-Boot Loader AVD (MSI)
+Ces deux eBooks sont disponibles sur [azuredoctor.fr](https://azuredoctor.fr/ebooks/) — un vrai kit de survie pour devenir autonome dans Azure.
+
+---
+
+Et bien sûr, les classiques à garder sous le coude :
+
+- [Documentation AVD](https://learn.microsoft.com/fr-fr/azure/virtual-desktop/)
+- [Microsoft Entra ID Join](https://learn.microsoft.com/fr-fr/azure/active-directory/devices/concept-azure-ad-join)
+- [Rôles RBAC Azure](https://learn.microsoft.com/fr-fr/azure/role-based-access-control/built-in-roles)
+- [Agent AVD (MSI)](https://go.microsoft.com/fwlink/?linkid=2310011)
+- [Boot Loader AVD (MSI)](https://go.microsoft.com/fwlink/?linkid=2311028)
+
 
 Prescrit par Azure Doctor 🩺
 Le cloud, sans surcharge mentale.
