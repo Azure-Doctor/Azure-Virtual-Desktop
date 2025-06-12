@@ -108,15 +108,15 @@ Vérifier que le service RDAgentBootLoader est en cours d’exécution
 
 Remove-AzResourceGroup -Name "azdoc-avd-demo-rg" -Force
 ```
-## 📚 Ressources utiles
+##  Ressources utiles
 
 Tu veux aller plus loin dans la maîtrise d’Azure ? Voici deux guides conçus pour t'accompagner concrètement :
 
-👉 **Masterclass Azure RBAC – Guide ultime du consultant**  
+ **Masterclass Azure RBAC – Guide ultime du consultant**  
 Comprends (enfin) les rôles, scopes et permissions dans Azure. Tu découvriras comment sécuriser ton environnement cloud sans te perdre dans la matrice RBAC.  
 📘 Format pratique, cas réels, astuces de terrain.
 
-👉 **Masterclass Azure Cloud Shell – Guide ultime du consultant**  
+ **Masterclass Azure Cloud Shell – Guide ultime du consultant**  
 Apprends à piloter ton infra 100 % en ligne, depuis n’importe quel navigateur. Commandes essentielles, scripts utiles, automatisation... tout ce qu’il faut pour ne plus dépendre de ton poste local.  
 ☁️ Optimisé pour les consultants pressés.
 
