@@ -4,9 +4,9 @@
 
 # Azure Virtual Desktop • A2I Lab
 
-Ce dépôt héberge les scripts et templates nécessaires pour **déployer** et **gérer** rapidement un environnement **Azure Virtual Desktop (AVD)** 100 % cloud‑only (Microsoft Entra ID join).
+Ce dépôt héberge les scripts et templates nécessaires pour déployer et gérer rapidement un environnement **Azure Virtual Desktop (AVD)** 100 % cloud‑only (Microsoft Entra ID join).
 
-> *« Stop au blabla, vive les scripts ! » — Azure Doctor 🩺*
+> « Stop au blabla, vive les scripts ! » — Azure Doctor 🩺
 
 
 
@@ -24,7 +24,7 @@ Ce dépôt héberge les scripts et templates nécessaires pour **déployer** et 
 ## 1️⃣ Vision globale
 
 > Déployer AVD ne devrait pas être un parcours du combattant.
-> **Objectif :** un lab prêt en **< 15 min**.
+> **Objectif : un lab prêt en **< 15 min.
 
 ```mermaid
 graph TD;
