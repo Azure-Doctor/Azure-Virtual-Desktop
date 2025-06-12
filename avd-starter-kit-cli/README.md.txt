@@ -43,7 +43,7 @@ graph TD;
 
 ## 2️⃣ Scripts détaillés
 
-### `avd-deploy.sh` 🩹
+ `avd-deploy.sh` 
 
 Déploie l’infrastructure socle :
 
@@ -56,10 +56,10 @@ Déploie l’infrastructure socle :
 
 
 
-### `Install-AVDAgent.ps1` 💉
+### `Install-AVDAgent.ps1` 
 
-Installe l’**Agent AVD** et le **Boot Loader** à l’intérieur d’un Session Host \*
-Microsoft Entra ID‑join\* — **sans** ouverture de session RDP :
+Installe l’Agent AVD et le Boot Loader à l’intérieur d’un Session Host \*
+Microsoft Entra ID‑join\* — sans ouverture de session RDP :
 
 ```powershell
 <# Synopsis : voir le script complet dans le dépôt #>
