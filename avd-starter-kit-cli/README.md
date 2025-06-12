@@ -23,15 +23,13 @@ Ce dépôt renferme un script PowerShell qui déploie en une seule passe un envi
 
 ##  Variables principales
 
-| Nom de variable | Description                         | Exemple                     |
-|-----------------|-------------------------------------|-----------------------------|
-| `$RG`           | Nom du Resource Group Azure         | `azdoc-avd-demo-rg`         |
-| `$LOCATION`     | Région Azure cible                  | `westeurope`                |
-| `$VM_NAME`      | Nom de la VM Session Host           | `azdocshvm01`               |
-| `$UPN`          | UPN Azure AD de l'utilisateur final | `prenom.nom@mondomaine.fr`  |
-| `$IMAGE`        | Image Windows utilisée              | `win11-22h2-avd`            |
-
-
+| Nom de variable | Description                               | Exemple                        |
+|-----------------|-------------------------------------------|--------------------------------|
+| `$RG`           | Nom du Resource Group Azure               | `azdoc-avd-demo-rg`            |
+| `$LOCATION`     | Région Azure cible                        | `westeurope`                   |
+| `$VM_NAME`      | Nom de la VM Session Host                 | `azdocshvm01`                  |
+| `$UPN`          | UPN Azure AD de l'utilisateur final       | `prenom.nom@mondomaine.fr`     |
+| `$IMAGE`        | Image Windows utilisée                    | `win11-22h2-avd`               |
 
 ##  Principe d’exécution
 
