@@ -6,13 +6,13 @@ Voici un **kit Bash complet** pour déployer un environnement AVD de bout en bou
 
 ##  Ce que fait ce script pour toi
 
-✅ Crée une **infrastructure complète** pour tester AVD  
-✅ Installe un **contrôleur de domaine (AD DS)**  
-✅ Configure un réseau avec **DNS pointant vers le DC**  
-✅ Crée un **host pool**, un **workspace** et un **app group**  
-✅ Déploie une **VM Windows 11 AVD-ready**, joint le domaine et installe les agents  
-✅ Gère l’intégration avec **JoinUser**, tokens, rôles et restart  
-✅ Le tout, en **1 seul script `.sh`** documenté et modifiable
+✅ Crée une infrastructure complète pour tester AVD  
+✅ Installe un contrôleur de domaine (AD DS)  
+✅ Configure un réseau avec DNS pointant vers le DC  
+✅ Crée un host pool, un workspace** et un app group  
+✅ Déploie une VM Windows 11 AVD-ready, joint le domaine et installe les agents  
+✅ Gère l’intégration avec JoinUser, tokens, rôles et restart  
+✅ Le tout, en 1 seul script `.sh` documenté et modifiable
 
 
 ##  Avant de commencer
