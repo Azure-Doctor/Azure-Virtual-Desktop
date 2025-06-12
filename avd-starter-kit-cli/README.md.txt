@@ -10,21 +10,21 @@ Ce dépôt héberge les scripts et templates nécessaires pour déployer et gér
 
 
 
-## 📄 Contenu du dépôt
+##  Contenu du dépôt
 
 | Fichier                    | Rôle                                                                | Points clefs                                                                                     |
 | -------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| **`avd-deploy.sh`**        | Déploiement **infrastructure AVD** *(bash + Azure CLI)*             | Resource Group, VNet/Subnet, Workspace, Host Pool, App Group, génération du *registration token* |
-| **`Install-AVDAgent.ps1`** | Installation **Agent AVD + Boot Loader** *(PowerShell Run‑Command)* | Télécharge les MSI, installation silencieuse, injection du token, redémarrage service            |
+| **`avd-deploy.sh`**        | Déploiement infrastructure AVD (bash + Azure CLI)             | Resource Group, VNet/Subnet, Workspace, Host Pool, App Group, génération du *registration token* |
+| **`Install-AVDAgent.ps1`** | Installation Agent AVD + Boot Loader (PowerShell Run‑Command) | Télécharge les MSI, installation silencieuse, injection du token, redémarrage service            |
 | **`README.md`**            | Documentation                                                       | Cette page : vision, pré‑requis, guides                                                          |
-| **`.bicep`** *(à venir)*   | Templates IaC                                                       | Provisioning Workspace / Host Pool en pur IaC                                                    |
+| **`.bicep`** (à venir)  | Templates IaC                                                       | Provisioning Workspace / Host Pool en pur IaC                                                    |
 
 
 
 ## 1️⃣ Vision globale
 
 > Déployer AVD ne devrait pas être un parcours du combattant.
-> **Objectif : un lab prêt en **< 15 min.
+> Objectif : un lab prêt en < 15 min.
 
 ```mermaid
 graph TD;
@@ -48,11 +48,9 @@ graph TD;
 Déploie l’infrastructure socle :
 
 1. Resource Group & VNet/Subnet
-2. **Workspace**, **Host Pool**, **App Group** (Desktop)
-3. Génère un **token d’enregistrement** (validité 24 h)
+2. Workspace, Host Pool, App Group (Desktop)
+3. Génère un token d’enregistrement (validité 24 h)
 4. Laisse un *placeholder* pour les Session Hosts, à remplacer par des VM **Entra ID join**
-
-> **Pourquoi bash ?** Rapide, portable (macOS, WSL, Cloud Shell) et lisible (pas de boucles obscures — sauf pour les RDSH si besoin).
 
 
 
@@ -81,7 +79,7 @@ param(
 | 2 | **Silent install** | `msiexec /quiet … REGISTRATIONTOKEN=$RegistrationToken` |
 | 3 | **Health check**   | Redémarre & vérifie `RDAgentBootLoader`                 |
 
-> Appelé via *az vm run-command*, il n’exige aucun port RDP ouvert.
+> Appelé via az vm run-command, il n’exige aucun port RDP ouvert.
 
 
 
@@ -92,7 +90,7 @@ param(
 | **Azure CLI**             | `>= 2.61` + extension `desktopvirtualization`                |
 | **PowerShell**            | 5.x ou 7.x sur la VM                                         |
 | **Rôles Azure**           | `Owner` ou `Contributor` sur la souscription                 |
-| **Connectivité sortante** | Port 443 vers `*.wvd.microsoft.com` & `*.trafficmanager.net` |
+| **Connectivité sortante** | Port 443 vers `.wvd.microsoft.com` & `.trafficmanager.net` |
 | **Token AVD**             | Valide (< 24 h) lors de l’installation des agents            |
 
 
@@ -135,23 +133,8 @@ az vm run-command invoke \
 | ----------------------- | ----------------------------------- | --------------------------------------------------------------- |
 | **Agent not reporting** | Token expiré                        | Regénérer le token (`avd-deploy.sh` étape 3)                    |
 | **RDP → loop MFA**      | Conditional Access bloque AAD Login | Vérifier la policy CA                                           |
-| **FSLogix KO**          | SMB non accessible                  | Rôle **Storage File Data SMB Share Contributor** sur le partage |
+| **FSLogix KO**          | SMB non accessible                  | Rôle Storage File Data SMB Share Contributor sur le partage |
 
-
-
-## 6️⃣ Roadmap
-
-* [ ] **Bicep** : template complet Workspace / Host Pool
-* [ ] **Pipeline DevOps** : déploiement CI/CD
-* [ ] Scripts **MSIX App Attach** façon Azure Doctor
-
-
-
-## 🤝 Contribuer
-
-Les PR sont bienvenues !
-
-> *« Ensemble, faisons respirer Azure. » — Azure Doctor*
 
 
 
