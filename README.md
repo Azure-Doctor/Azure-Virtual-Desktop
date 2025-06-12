@@ -32,6 +32,7 @@ git clone https://github.com/Azure-Doctor/avd-starter-kit-cli.git
 cd avd-starter-kit-cli/cli
 chmod +x deploy-avd.sh
 ./deploy-avd.sh
+
 Tu peux modifier les variables globales en haut du script : noms des VM, mots de passe, domaine, région, etc.
 
  Structure du dépôt
