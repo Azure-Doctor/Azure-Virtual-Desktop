@@ -92,7 +92,6 @@ Confirmer que l’utilisateur $UPN voit bien un bureau publié
 
 Vérifier que le service RDAgentBootLoader est en cours d’exécution
 
-##  Diagnostic rapide
 
 ## Diagnostic rapide
 
