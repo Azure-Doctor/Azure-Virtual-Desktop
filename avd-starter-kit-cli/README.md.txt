@@ -50,7 +50,7 @@ Déploie l’infrastructure socle :
 1. Resource Group & VNet/Subnet
 2. Workspace, Host Pool, App Group (Desktop)
 3. Génère un token d’enregistrement (validité 24 h)
-4. Laisse un *placeholder* pour les Session Hosts, à remplacer par des VM **Entra ID join**
+4. Laisse un placeholder pour les Session Hosts, à remplacer par des VM Entra ID join
 
 
 
@@ -87,11 +87,11 @@ param(
 
 | Élément                   | Version / Remarque                                           |
 | ------------------------- | ------------------------------------------------------------ |
-| **Azure CLI**             | `>= 2.61` + extension `desktopvirtualization`                |
-| **PowerShell**            | 5.x ou 7.x sur la VM                                         |
-| **Rôles Azure**           | `Owner` ou `Contributor` sur la souscription                 |
-| **Connectivité sortante** | Port 443 vers `.wvd.microsoft.com` & `.trafficmanager.net` |
-| **Token AVD**             | Valide (< 24 h) lors de l’installation des agents            |
+| Azure CLI                 | `>= 2.61` + extension `desktopvirtualization`                |
+| PowerShell                | 5.x ou 7.x sur la VM                                         |
+| Rôles Azure               | `Owner` ou `Contributor` sur la souscription                 |
+|   Connectivité sortante   | Port 443 vers `.wvd.microsoft.com` & `.trafficmanager.net`   |
+|     Token AVD             | Valide (< 24 h) lors de l’installation des agents            |
 
 
 
@@ -131,9 +131,9 @@ az vm run-command invoke \
 
 | Symptôme                | Diagnostic                          | Remède                                                          |
 | ----------------------- | ----------------------------------- | --------------------------------------------------------------- |
-| **Agent not reporting** | Token expiré                        | Regénérer le token (`avd-deploy.sh` étape 3)                    |
-| **RDP → loop MFA**      | Conditional Access bloque AAD Login | Vérifier la policy CA                                           |
-| **FSLogix KO**          | SMB non accessible                  | Rôle Storage File Data SMB Share Contributor sur le partage |
+|   Agent not reporting   | Token expiré                        | Regénérer le token (`avd-deploy.sh` étape 3)                    |
+|   RDP → loop MFA        | Conditional Access bloque AAD Login | Vérifier la policy CA                                           |
+|   FSLogix KO            | SMB non accessible                  | Rôle Storage File Data SMB Share Contributor sur le partage |
 
 
 
