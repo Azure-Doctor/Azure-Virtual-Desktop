@@ -1,76 +1,91 @@
-# 👋 Salut, et bienvenue dans l’AVD Starter Kit – CLI Edition
+Azure Virtual Desktop Starter Kit
 
-Tu veux déployer un environnement Azure Virtual Desktop sans y passer l’après-midi ?  
-Voici un **kit Bash complet** pour déployer un environnement AVD de bout en bout, **à la manière d’Azure Doctor** : sans prise de tête, bien structuré, et prêt à l’emploi.
+Ce dépôt contient un script PowerShell pour déployer un environnement Azure Virtual Desktop (AVD) cloud-only avec Microsoft Entra ID Join. Le script crée les ressources Azure nécessaires, configure une VM Windows 11 en Session Host, installe l’agent AVD et le Boot Loader, puis attribue les rôles RBAC requis sans aucune connexion RDP.
 
+Contenu
 
-##  Ce que fait ce script pour toi
+Fichier
 
-✅ Crée une infrastructure complète pour tester AVD  
-✅ Installe un contrôleur de domaine (AD DS)  
-✅ Configure un réseau avec DNS pointant vers le DC  
-✅ Crée un host pool, un workspace** et un app group  
-✅ Déploie une VM Windows 11 AVD-ready, joint le domaine et installe les agents  
-✅ Gère l’intégration avec JoinUser, tokens, rôles et restart  
-✅ Le tout, en 1 seul script `.sh` documenté et modifiable
+Description
 
+avd-deploy-starterkit.ps1
 
-##  Avant de commencer
+Script complet de déploiement
 
-Tu as besoin de :
+README.md
 
-- Un terminal avec Bash (Linux, WSL, Mac)
-- Azure CLI v2.45 ou plus récent
-- Un abonnement Azure actif avec droits “Contributeur”
-- Un groupe de ressources vierge ou isolé pour les tests
+Document de référence
 
+Aperçu du script
 
-##  Lancer le déploiement
+Vérification et import des modules PowerShell Az
 
-```bash
-git clone https://github.com/Azure-Doctor/avd-starter-kit-cli.git
-cd avd-starter-kit-cli/cli
-chmod +x deploy-avd.sh
-./deploy-avd.sh
+Création du groupe de ressources, du réseau virtuel, du sous-réseau et du groupe de sécurité réseau
 
-Tu peux modifier les variables globales en haut du script : noms des VM, mots de passe, domaine, région, etc.
+Déploiement de l’espace de travail AVD, du host pool et du groupe d’applications Bureau
 
- Structure du dépôt
-bash
-Copier le code
-avd-starter-kit-cli/
-├── cli/
-│   └── deploy-avd.sh               # Script Bash principal
-├── docs/
-│   └── architecture.png            # Schéma d’infrastructure
-├── .github/
-│   └── workflows/
-│       └── validate-shell.yml      # (Optionnel) Lint/Syntax check automatique
-├── LICENSE
-└── README.md
- Ce que ça déploie concrètement
-Domaine AD a2itechnologies.local
+Génération d’un token d’enregistrement valide 24 h
 
-VM dc-avd-demo (DC + DNS)
+Provisionnement d’une VM Windows 11 avec identité managée
 
-VM avd-pooled-1 (Windows 11)
+Ajout de l’extension AADLoginForWindows pour rejoindre Microsoft Entra ID
 
-Pool AVD : a2i-avd-hp-pooled
+Exécution d’un script à l’intérieur de la VM pour télécharger et installer l’agent AVD et le Boot Loader
 
-Workspace AVD : a2i-avd-workspace
+Attribution des rôles :
 
-Application Group (type "Desktop")
+Virtual Machine User Login (sur la VM)
 
-DNS, jointure domaine, installation agents, token d’enregistrement
+Desktop Virtualization User (sur le groupe d’applications)
 
- Le tout est déployé dans un Virtual Network isolé avec nommage clair :
-a2i-avd-demo-*
+Prérequis
 
+Az PowerShell 10.4 ou ultérieur
 
+Rôle Contributor (ou supérieur) sur la souscription
 
-📄 Licence
-Ce kit est publié sous licence MIT — libre à toi de le réutiliser, le modifier, le partager.
-Et si tu l’améliores ? Fais une pull request .
+Accès sortant TCP 443 vers *.wvd.microsoft.com et *.trafficmanager.net
 
+Démarrage rapide
 
-🩺 – Azure Doctor
+# Connexion à Azure
+Connect-AzAccount
+
+# Exécution du script
+./avd-deploy-starterkit.ps1
+
+Personnalisez les variables dans la section 0. CONFIGURATION en tête du script (noms, région, taille de VM, mot de passe, UPN).
+
+Résolution de problèmes
+
+Symptôme
+
+Cause
+
+Solution
+
+Session Host absent du host pool
+
+Token expiré avant installation de l’agent
+
+Regénérer le token (section 4) et relancer section 7
+
+Connexion en boucle MFA
+
+Conditional Access bloque l’extension AADLogin
+
+Vérifier les politiques Conditional Access
+
+Profil FSLogix non monté
+
+Permissions de stockage insuffisantes
+
+Ajouter le rôle Storage File Data SMB Share Contributor
+
+Roadmap
+
+Modèle Bicep pour déploiement CI/CD
+
+Module optionnel MSIX App Attach
+
+Publié par Azure Doctor — Azure sans surcharge.
