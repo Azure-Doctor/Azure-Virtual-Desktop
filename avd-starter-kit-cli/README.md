@@ -70,10 +70,6 @@ Personnalisez les variables en début de script : noms, région, taille de VM, 
 | RDP bloqué par MFA         | Extension AADLoginForWindows refusée | Ajuster les politiques Conditional Access                   |
 | Profil FSLogix introuvable | Permissions de partage manquantes    | Ajouter le rôle **Storage File Data SMB Share Contributor** |
 
-## Roadmap
-
-* Template Bicep pour pipeline CI/CD
-* Module MSIX App Attach optionnel
 
 ---
 
