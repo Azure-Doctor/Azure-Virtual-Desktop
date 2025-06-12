@@ -31,7 +31,7 @@ Ce dépôt renferme un script PowerShell qui déploie en une seule passe un envi
 | `$UPN`          | UPN Azure AD de l'utilisateur final | `prenom.nom@mondomaine.fr`  |
 | `$IMAGE`        | Image Windows utilisée              | `win11-22h2-avd`            |
 
----
+
 
 ##  Principe d’exécution
 
@@ -83,7 +83,7 @@ Connect-AzAccount
 ```
 💡 Personnalisez les variables en haut du script (noms, région, mot de passe, UPN…).
 
-✅ Vérification post-déploiement
+ ##  Vérification post-déploiement
 Accéder à Azure Portal → Azure Virtual Desktop → Host Pools
 
 Vérifier que la VM apparaît bien comme Session Host
@@ -94,19 +94,21 @@ Confirmer que l’utilisateur $UPN voit bien un bureau publié
 
 Vérifier que le service RDAgentBootLoader est en cours d’exécution
 
- Diagnostic rapide
-Symptôme	Cause possible	Action recommandée
-VM absente du host pool	Token expiré	Regénérer le token (étape 4) et relancer l’agent AVD
-RDP bloqué par MFA	Extension refusée par CA	Vérifier les politiques Conditional Access
-Profil FSLogix introuvable	Partage de fichiers mal configuré	Attribuer le rôle Storage File Data SMB Share Contributor
+##  Diagnostic rapide
 
-🧹 Nettoyer l’environnement (optionnel)
-powershell
-Copier
-Modifier
+| Symptôme                     | Cause possible                       | Action recommandée                                              |
+|------------------------------|--------------------------------------|-----------------------------------------------------------------|
+| VM absente du host pool      | Token expiré                         | Regénérer le token (étape 4) et relancer l’agent AVD            |
+| RDP bloqué par MFA           | Extension refusée par une policy CA | Vérifier et adapter les politiques Conditional Access           |
+| Profil FSLogix introuvable   | Partage de fichiers mal configuré    | Ajouter le rôle **Storage File Data SMB Share Contributor**     |
+
+
+## Nettoyer l’environnement (optionnel)
+```powershell
+
 Remove-AzResourceGroup -Name "azdoc-avd-demo-rg" -Force
-
-📚 Ressources utiles
+```
+## Ressources utiles
 Documentation AVD
 
 Microsoft Entra ID Join
