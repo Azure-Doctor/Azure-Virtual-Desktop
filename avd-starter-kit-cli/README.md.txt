@@ -13,7 +13,7 @@ Ce dépôt héberge les scripts et templates nécessaires pour **déployer** et 
 | Fichier | Rôle | Points clefs |
 |---------|------|--------------|
 | **`avd-deploy.sh`** | Déploiement **infrastructure AVD** *(bash + Azure CLI)* | Resource Group, VNet/Subnet, Workspace, Host Pool, App Group, Token d’enregistrement |
-| **`avd-agents.ps1`** | Installation **Agents AVD** *(PowerShell Run Command)* | Télécharge & installe l’Agent + Boot Loader, injecte le token, vérifie le service |
+| **`Install-AVDAgent.ps1`** | Installation **Agents AVD** *(PowerShell Run Command)* | Télécharge & installe l’Agent + Boot Loader, injecte le token, vérifie le service |
 | **`README.md`** | Documentation | Cette page : vision, pré-requis, guide pas-à-pas |
 | **`.bicep`** *(à venir)* | Templates IaC | Provisioning Workspace/Host Pool en pur IaC |
 
