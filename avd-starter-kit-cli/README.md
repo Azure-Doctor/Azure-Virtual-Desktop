@@ -10,7 +10,7 @@ Ce dépôt renferme un script PowerShell qui déploie en une seule passe un envi
 - L’agent AVD et son Boot Loader installés sans RDP
 - Les rôles RBAC essentiels attribués
 
----
+
 
 ## Contenu
 
@@ -80,6 +80,7 @@ Connect-AzAccount
 
 # Lancer le script
 ./avd-deploy-starterkit.ps1
+```
 💡 Personnalisez les variables en haut du script (noms, région, mot de passe, UPN…).
 
 ✅ Vérification post-déploiement
