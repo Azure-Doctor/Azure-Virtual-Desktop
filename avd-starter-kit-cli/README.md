@@ -94,11 +94,14 @@ Vérifier que le service RDAgentBootLoader est en cours d’exécution
 
 ##  Diagnostic rapide
 
-| Symptôme                     | Cause possible                       | Action recommandée                                              |
-|------------------------------|--------------------------------------|-----------------------------------------------------------------|
-| VM absente du host pool      | Token expiré                         | Regénérer le token (étape 4) et relancer l’agent AVD            |
-| RDP bloqué par MFA           | Extension refusée par une policy CA | Vérifier et adapter les politiques Conditional Access           |
-| Profil FSLogix introuvable   | Partage de fichiers mal configuré    | Ajouter le rôle **Storage File Data SMB Share Contributor**     |
+## Diagnostic rapide
+
+| Symptôme                    | Cause possible                      | Action recommandée                                           |
+|-----------------------------|-------------------------------------|--------------------------------------------------------------|
+| VM absente du host pool     | Token expiré                        | Regénérer le token (étape 4) et relancer l’agent AVD         |
+| RDP bloqué par MFA          | Extension refusée par une policy CA | Vérifier et adapter les politiques Conditional Access         |
+| Profil FSLogix introuvable  | Partage de fichiers mal configuré   | Ajouter le rôle Storage File Data SMB Share Contributor      |
+
 
 
 ## Nettoyer l’environnement (optionnel)
